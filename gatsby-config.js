@@ -24,9 +24,18 @@ module.exports = {
         background_color: '#663399',
         theme_color: '#663399',
         display: 'minimal-ui',
-        icon: 'src/images/gatsby-logo.png', // This path is relative to the root of the site.
+        icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: 'gatsby-source-sanity',
+      options: {
+        projectId: '993ecr0d',
+        dataset: 'production',
+        token: process.env.SANITY_TOKEN,
+      },
+    },
+    'gatsby-plugin-syled-components',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

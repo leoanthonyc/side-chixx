@@ -4,13 +4,13 @@ import React from 'react';
 import Image from './image';
 import './header.css';
 
-const Header = ({ siteTitle }) => (
+const Header = () => (
   <header>
     <div>
       <h1 style={{ margin: 0 }}>
-        <Link to="/chics">
+        <Link to="/menu">
           <span role="img" aria-label="poultry leg">🍗</span>
-          Chics
+          Menu
         </Link>
         <Link
           to="/dips"
