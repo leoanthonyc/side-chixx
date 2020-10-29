@@ -38,7 +38,7 @@ const Header = () => (
     <HeaderStyles>
       <ul>
         <li>
-          <Link to="/menu">
+          <Link to="/">
             Menu
           </Link>
         </li>
@@ -63,7 +63,7 @@ const Header = () => (
         </li>
         <li>
           <Link
-            to="/menu"
+            to="/"
           >
             <Image />
           </Link>
