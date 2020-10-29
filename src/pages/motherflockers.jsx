@@ -31,7 +31,10 @@ export default function Motherflockers({ data }) {
   return (
     <Layout>
       <SEO title="Chics" />
-      <h2>Who&apos;s cooking?</h2>
+      <h2>
+        Who&apos;s cooking?
+        <span role="img" aria-label="man cook"> 👨‍🍳</span>
+      </h2>
       <PersonStyles>
         {persons.map((person) => (
           <li key={`mf-${person.id}`}>

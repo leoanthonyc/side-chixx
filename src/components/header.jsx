@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Image from './image';
 
 const HeaderStyles = styled.nav`
-  padding: 1rem 5rem 1rem 5rem;
+  padding: 1rem 5rem;
 
   .gatsby-image-wrapper {
     width: 200px;

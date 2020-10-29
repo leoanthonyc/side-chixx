@@ -32,7 +32,10 @@ export default function Dips({ data }) {
   return (
     <Layout>
       <SEO title="Dips" />
-      <h2>Sauce up!</h2>
+      <h2>
+        Sauce up!
+        <span role="img" aria-label="tongue"> 👅</span>
+      </h2>
       <DipsStyles>
         {dips.map((dip) => (
           <li key={`dip-${dip.id}`}>

@@ -37,7 +37,10 @@ export default function Menu({ data }) {
   return (
     <Layout>
       <SEO title="Menu" />
-      <h1>Menu</h1>
+      <h2>
+        Choose wisely!
+        <span role="img" aria-label="eyes"> 👀</span>
+      </h2>
       <MenuStyles>
         {chickens.map((chicken) => (
           <li key={`chic-${chicken.id}`}>
