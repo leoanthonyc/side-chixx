@@ -6,7 +6,7 @@ This is a mock website for my girlfriend's chicken wings business
 
 - Show list of available chicken flavors
 - Show list of available dip sauces
-- Show info about placing orders & mode of payments
+- Show information about placing orders & mode of payments
 - Show information about the team
 
 ## Technology
