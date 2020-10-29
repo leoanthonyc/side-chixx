@@ -1,48 +1,74 @@
 import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import Image from './image';
 
-const HeaderStyles = styled.div`
+const HeaderStyles = styled.nav`
+  padding: 1rem 5rem 1rem 5rem;
+
   .gatsby-image-wrapper {
-    display: inline-block;
-    height: 200px;
     width: 200px;
-    top: 42px;
   }
-`
+
+  ul {
+    list-style: none;
+    margin: 0;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-gap: 1rem;
+    align-items: center;
+  }
+  }
+  a {
+    font-size: 3rem;
+    text-decoration: none;
+    display: block;
+    &:hover {
+      color: gold;
+    }
+    &[aria-current='page'] {
+      color: gold;
+    }
+  }
+`;
 
 const Header = () => (
   <header>
     <HeaderStyles>
-      <h1 style={{ margin: 0 }}>
-        <Link to="/menu">
-          <span role="img" aria-label="poultry leg">🍗</span>
-          Menu
-        </Link>
-        <Link
-          to="/dips"
-        >
-          <span role="img" aria-label="hot pepper">🌶</span>
-          Dips
-        </Link>
-        <Link
-          to="/motherflockers"
-        >
-          <span role="img" aria-label="man cook">👨‍🍳</span>
-          Motherflockers
-        </Link>
-        <Link to="/order">
-          <span role="img" aria-label="receipt">🧾</span>
-          Order
-        </Link>
-        <Link
-          to="/menu"
-        >
-          <Image />
-        </Link>
-      </h1>
+      <ul>
+        <li>
+          <Link to="/menu">
+            Menu
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/dips"
+          >
+            Dips
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/motherflockers"
+          >
+            Motherflockers
+          </Link>
+        </li>
+        <li>
+          <Link to="/order">
+            Order
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/menu"
+          >
+            <Image />
+          </Link>
+        </li>
+      </ul>
     </HeaderStyles>
   </header>
 );

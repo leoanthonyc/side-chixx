@@ -8,7 +8,7 @@ import SEO from '../components/seo';
 
 const PersonStyles = styled.ul`
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 50% 50%;
   grid-gap: 1rem;
 
   li {
