@@ -35,7 +35,7 @@ module.exports = {
         token: process.env.SANITY_TOKEN,
       },
     },
-    'gatsby-plugin-syled-components',
+    'gatsby-plugin-styled-components',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

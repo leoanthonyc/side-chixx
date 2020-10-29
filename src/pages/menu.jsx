@@ -2,8 +2,16 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+
+const MenuStyles = styled.div`
+  li {
+    list-style-type: none;
+    display: inline-block;
+  }
+`;
 
 export default function Menu({ data }) {
   const chickens = data.allSanityChicken.nodes;
@@ -11,15 +19,17 @@ export default function Menu({ data }) {
   return (
     <Layout>
       <SEO title="Menu" />
-      <h1>Menu</h1>
-      <ul>
-        {chickens.map((chicken) => (
-          <li key={`chic-${chicken.name}`}>
-            <h2>{chicken.name}</h2>
-            <Img fluid={chicken.photo.asset.fluid} alt={chicken.name} />
-          </li>
-        ))}
-      </ul>
+      <MenuStyles>
+        <h1>Menu</h1>
+        <ul>
+          {chickens.map((chicken) => (
+            <li key={`chic-${chicken.id}`}>
+              <h3>{chicken.name}</h3>
+              <Img fluid={chicken.photo.asset.fluid} alt={chicken.name} />
+            </li>
+          ))}
+        </ul>
+      </MenuStyles>
     </Layout>
   );
 }
@@ -40,7 +50,7 @@ export const query = graphql`
         name
         photo {
           asset {
-            fluid(maxWidth: 600) {
+            fluid(maxWidth: 400) {
               ...GatsbySanityImageFluid
             }
           }

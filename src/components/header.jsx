@@ -1,12 +1,21 @@
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
+import styled from 'styled-components';
 import Image from './image';
-import './header.css';
+
+const HeaderStyles = styled.div`
+  .gatsby-image-wrapper {
+    display: inline-block;
+    height: 200px;
+    width: 200px;
+    top: 42px;
+  }
+`
 
 const Header = () => (
   <header>
-    <div>
+    <HeaderStyles>
       <h1 style={{ margin: 0 }}>
         <Link to="/menu">
           <span role="img" aria-label="poultry leg">🍗</span>
@@ -34,16 +43,8 @@ const Header = () => (
           <Image />
         </Link>
       </h1>
-    </div>
+    </HeaderStyles>
   </header>
 );
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-};
-
-Header.defaultProps = {
-  siteTitle: '',
-};
 
 export default Header;
