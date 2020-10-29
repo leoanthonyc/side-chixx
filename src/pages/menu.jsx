@@ -6,10 +6,28 @@ import styled from 'styled-components';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
-const MenuStyles = styled.div`
+const MenuStyles = styled.ul`
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 2rem;
+  row-gap: 3rem;
+
   li {
     list-style-type: none;
-    display: inline-block;
+    text-align: center;
+  }
+
+  .gatsby-image-wrapper {
+    height: 400px;
+  }
+
+  h3 {
+    padding-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    margin: 0;
+    padding: 0;
   }
 `;
 
@@ -19,16 +37,15 @@ export default function Menu({ data }) {
   return (
     <Layout>
       <SEO title="Menu" />
+      <h1>Menu</h1>
       <MenuStyles>
-        <h1>Menu</h1>
-        <ul>
-          {chickens.map((chicken) => (
-            <li key={`chic-${chicken.id}`}>
-              <h3>{chicken.name}</h3>
-              <Img fluid={chicken.photo.asset.fluid} alt={chicken.name} />
-            </li>
-          ))}
-        </ul>
+        {chickens.map((chicken) => (
+          <li key={`chic-${chicken.id}`}>
+            <Img fluid={chicken.photo.asset.fluid} alt={chicken.name} />
+            <h3>{chicken.name}</h3>
+            <p>{chicken.description}</p>
+          </li>
+        ))}
       </MenuStyles>
     </Layout>
   );
@@ -48,9 +65,10 @@ export const query = graphql`
       nodes {
         id
         name
+        description
         photo {
           asset {
-            fluid(maxWidth: 400) {
+            fluid(maxWidth: 600) {
               ...GatsbySanityImageFluid
             }
           }

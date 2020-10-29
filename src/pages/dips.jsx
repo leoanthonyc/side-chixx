@@ -6,10 +6,23 @@ import styled from 'styled-components';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
-const DipsStyles = styled.div`
+const DipsStyles = styled.ul`
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 2rem;
+  row-gap: 3rem;
+
   li {
     list-style-type: none;
-    display: inline-block;
+    text-align: center;
+  }
+
+  .gatsby-image-wrapper {
+    height: 400px;
+  }
+
+  h3 {
+    padding-top: 1rem;
   }
 `;
 
@@ -19,16 +32,14 @@ export default function Dips({ data }) {
   return (
     <Layout>
       <SEO title="Dips" />
+      <h2>Sauce up!</h2>
       <DipsStyles>
-        <h2>Sauce up!</h2>
-        <ul>
-          {dips.map((dip) => (
-            <li key={`dip-${dip.id}`}>
-              <h3>{dip.name}</h3>
-              <Img fluid={dip.photo?.asset?.fluid} alt={dip.name} />
-            </li>
-          ))}
-        </ul>
+        {dips.map((dip) => (
+          <li key={`dip-${dip.id}`}>
+            <Img fluid={dip.photo?.asset?.fluid} alt={dip.name} />
+            <h3>{dip.name}</h3>
+          </li>
+        ))}
       </DipsStyles>
     </Layout>
   );

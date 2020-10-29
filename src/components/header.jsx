@@ -33,12 +33,12 @@ const Header = () => (
           <span role="img" aria-label="man cook">👨‍🍳</span>
           Motherflockers
         </Link>
-        <Link to="/">
+        <Link to="/order">
           <span role="img" aria-label="receipt">🧾</span>
-          Place Your Order
+          Order
         </Link>
         <Link
-          to="/"
+          to="/menu"
         >
           <Image />
         </Link>

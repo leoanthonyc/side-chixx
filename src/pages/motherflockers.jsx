@@ -6,10 +6,22 @@ import styled from 'styled-components';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
-const PersonStyles = styled.div`
+const PersonStyles = styled.ul`
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
+
   li {
     list-style-type: none;
-    display: inline-block;
+    text-align: center;
+  }
+
+  .gatsby-image-wrapper {
+    height: 600px;
+  }
+
+  h3 {
+    padding-top: 1rem;
   }
 `;
 
@@ -19,16 +31,15 @@ export default function Motherflockers({ data }) {
   return (
     <Layout>
       <SEO title="Chics" />
+      <h2>Who&apos;s cooking?</h2>
       <PersonStyles>
-        <h2>Who&apos;s cooking?</h2>
-        <ul>
-          {persons.map((person) => (
-            <li key={`mf-${person.id}`}>
-              <h3>{person.name}</h3>
-              <Img fluid={person.photo.asset.fluid} alt={person.name} />
-            </li>
-          ))}
-        </ul>
+        {persons.map((person) => (
+          <li key={`mf-${person.id}`}>
+            <Img fluid={person.photo.asset.fluid} alt={person.name} />
+            <h3>{person.name}</h3>
+            <p>{person.description}</p>
+          </li>
+        ))}
       </PersonStyles>
     </Layout>
   );
@@ -48,6 +59,7 @@ export const query = graphql`
       nodes {
         id
         name
+        description
         photo {
           asset {
             fluid(maxWidth: 400) {
