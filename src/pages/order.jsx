@@ -17,8 +17,6 @@ const OrderStyles = styled.div`
 `;
 
 function Order({ data }) {
-  console.log(data);
-
   return (
     <Layout>
       <SEO title="Home" />
