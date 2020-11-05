@@ -14,6 +14,10 @@ const OrderStyles = styled.div`
   .gatsby-image-wrapper {
     height: 100%;
   }
+
+  @media (max-width: 400px) {
+    grid-template-columns: auto;
+  }
 `;
 
 function Order({ data }) {

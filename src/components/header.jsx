@@ -31,6 +31,14 @@ const HeaderStyles = styled.nav`
       color: gold;
     }
   }
+  @media (max-width: 400px) {
+    ul {
+      justify-items: left;
+      grid-template-columns: auto;
+      grid-template-rows: auto auto;
+      grid-gap: 1rem;
+    }
+  }
 `;
 
 const Header = () => (
@@ -50,15 +58,15 @@ const Header = () => (
           </Link>
         </li>
         <li>
-          <Link
-            to="/motherflockers"
-          >
-            Motherflockers
+          <Link to="/order">
+            Order
           </Link>
         </li>
         <li>
-          <Link to="/order">
-            Order
+          <Link
+            to="/motherflockers"
+          >
+            Team
           </Link>
         </li>
         <li>

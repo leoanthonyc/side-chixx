@@ -6,11 +6,14 @@ import styled from 'styled-components';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
-const DipsStyles = styled.ul`
-  display: grid;
-  grid-template-columns: auto auto;
-  column-gap: 2rem;
-  row-gap: 3rem;
+const DipsStyles = styled.div`
+  ul {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 2rem;
+    row-gap: 3rem;
+  }
+
 
   li {
     list-style-type: none;
@@ -23,6 +26,13 @@ const DipsStyles = styled.ul`
 
   h3 {
     padding-top: 1rem;
+  }
+
+  @media (max-width: 400px) {
+    ul {
+      grid-template-columns: auto;
+      row-gap: 1rem;
+    }
   }
 `;
 
@@ -37,12 +47,14 @@ export default function Dips({ data }) {
         <span role="img" aria-label="tongue"> 👅</span>
       </h2>
       <DipsStyles>
-        {dips.map((dip) => (
-          <li key={`dip-${dip.id}`}>
-            <Img fluid={dip.photo?.asset?.fluid} alt={dip.name} />
-            <h3>{dip.name}</h3>
-          </li>
-        ))}
+        <ul>
+          {dips.map((dip) => (
+            <li key={`dip-${dip.id}`}>
+              <Img fluid={dip.photo?.asset?.fluid} alt={dip.name} />
+              <h3>{dip.name}</h3>
+            </li>
+          ))}
+        </ul>
       </DipsStyles>
     </Layout>
   );

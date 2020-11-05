@@ -6,10 +6,12 @@ import styled from 'styled-components';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
-const PersonStyles = styled.ul`
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-gap: 1rem;
+const PersonStyles = styled.div`
+  ul {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 1rem;
+  }
 
   li {
     list-style-type: none;
@@ -22,6 +24,12 @@ const PersonStyles = styled.ul`
 
   h3 {
     padding-top: 1rem;
+  }
+
+  @media (max-width: 400px) {
+    ul {
+      grid-template-columns: auto;
+    }
   }
 `;
 
@@ -36,13 +44,15 @@ export default function Motherflockers({ data }) {
         <span role="img" aria-label="man cook"> 👨‍🍳</span>
       </h2>
       <PersonStyles>
-        {persons.map((person) => (
-          <li key={`mf-${person.id}`}>
-            <Img fluid={person.photo.asset.fluid} alt={person.name} />
-            <h3>{person.name}</h3>
-            <p>{person.description}</p>
-          </li>
-        ))}
+        <ul>
+          {persons.map((person) => (
+            <li key={`mf-${person.id}`}>
+              <Img fluid={person.photo.asset.fluid} alt={person.name} />
+              <h3>{person.name}</h3>
+              <p>{person.description}</p>
+            </li>
+          ))}
+        </ul>
       </PersonStyles>
     </Layout>
   );

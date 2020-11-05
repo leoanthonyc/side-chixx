@@ -6,11 +6,13 @@ import styled from 'styled-components';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
-const MenuStyles = styled.ul`
-  display: grid;
-  grid-template-columns: auto auto;
-  column-gap: 2rem;
-  row-gap: 3rem;
+const MenuStyles = styled.div`
+  ul {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 2rem;
+    row-gap: 3rem;
+  }
 
   li {
     list-style-type: none;
@@ -25,9 +27,17 @@ const MenuStyles = styled.ul`
     padding-top: 1rem;
     margin-bottom: 0.5rem;
   }
+
   p {
     margin: 0;
     padding: 0;
+  }
+
+  @media (max-width: 400px) {
+    ul {
+      grid-template-columns: auto;
+      row-gap: 1rem;
+    }
   }
 `;
 
@@ -42,13 +52,15 @@ export default function Menu({ data }) {
         <span role="img" aria-label="eyes"> 👀</span>
       </h2>
       <MenuStyles>
-        {chickens.map((chicken) => (
-          <li key={`chic-${chicken.id}`}>
-            <Img fluid={chicken.photo.asset.fluid} alt={chicken.name} />
-            <h3>{chicken.name}</h3>
-            <p>{chicken.description}</p>
-          </li>
-        ))}
+        <ul>
+          {chickens.map((chicken) => (
+            <li key={`chic-${chicken.id}`}>
+              <Img fluid={chicken.photo.asset.fluid} alt={chicken.name} />
+              <h3>{chicken.name}</h3>
+              <p>{chicken.description}</p>
+            </li>
+          ))}
+        </ul>
       </MenuStyles>
     </Layout>
   );
